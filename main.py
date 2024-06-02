@@ -9,7 +9,7 @@ def main():
         pattern = r'.{0,}'
         n = int(input('Введите длину слова: '))
         letters_true = set()
-        failed_words = set()
+        failed_words = []
         for _ in range(t):
             word = sorted([x for x in words if len(x[0])==n and all(True if i in alp else False for i in x[0]) \
                         and re.match(pattern,x[0]) \
@@ -38,7 +38,7 @@ def main():
             if r:
                 pattern = r.replace(' ','').replace('_','.')
                 if '.' in pattern:
-                    failed_words.add(word)
+                    failed_words.append(word)
             alp = [x for x in alp if x not in set(word)-set(letters_true)]
         else:
             word = input('Не удалось угадать слово. Введите загаданное: ')
