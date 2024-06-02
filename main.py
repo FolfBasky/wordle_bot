@@ -21,15 +21,16 @@ def main():
                 db.add_word(wv,1,1)
                 break
             print('Попробуйте: '+word)
-            inp = input('Какие буквы есть в слове? ')
+            inp = input('Какие буквы есть в слове? (запишите +, если угадано) ')
+            if len(inp) == n or inp == '+':
+                if inp != '+':print(inp.title() + ' - ваше загаданное слово!')
+                else: print(word.title() + ' - ваше загаданное слово!')
+                db.update_encountered(pattern)
+                break
             if not inp.isalpha() and inp != '':
                 print('Некорректно!')
                 inp = input('Какие буквы есть в слове? ')
             letters_true |= set(inp)
-            if len(inp) == n:
-                print(inp.title() + ' - ваше загаданное слово!')
-                db.update_encountered(pattern)
-                break
             r = input('Введите шаблон правильных букв (ок_а_) или enter, если шаблон не изменился: ')
             if len(r) != n and len(r) != 0:
                 print('Некорректно!')
