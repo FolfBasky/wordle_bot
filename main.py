@@ -22,7 +22,7 @@ def main():
                 break
             print('Попробуйте: '+word)
             inp = input('Какие буквы есть в слове? ')
-            if not inp.isalpha():
+            if not inp.isalpha() and inp != '':
                 print('Некорректно!')
                 inp = input('Какие буквы есть в слове? ')
             letters_true |= set(inp)
@@ -31,7 +31,7 @@ def main():
                 db.update_encountered(pattern)
                 break
             r = input('Введите шаблон правильных букв (ок_а_) или enter, если шаблон не изменился: ')
-            if len(r) != n:
+            if len(r) != n and len(r) != 0:
                 print('Некорректно!')
                 r = input('Введите шаблон правильных букв (ок_а_) или enter, если шаблон не изменился: ')
             if r:
