@@ -26,6 +26,7 @@ def main():
                 if inp != '+':print(inp.title() + ' - ваше загаданное слово!')
                 else: print(word.title() + ' - ваше загаданное слово!')
                 db.update_encountered(pattern)
+                db.increment_usage_count(word)
                 break
             if not inp.isalpha() and inp != '':
                 print('Некорректно!')

@@ -84,4 +84,5 @@ def delete_word(word):
 # Пример использования функций
 if __name__ == "__main__":
     create_table()
+    print(get_words_sorted())
     print(len(get_words_sorted()))
