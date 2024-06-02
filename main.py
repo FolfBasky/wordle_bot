@@ -1,13 +1,13 @@
 import db
 import re
 
+
 def main():
     while True:
         words = db.get_words_sorted()
         alp = list('абвгдеёжзийклмнопрстуфхцчшщъыьэюя')
         pattern = r'.{0,}'
         n = int(input('Введите длину слова: '))
-        t = int(input('Введите кол-во попыток: '))
         letters_true = set()
         failed_words = set()
         for _ in range(t):
@@ -45,4 +45,5 @@ def main():
             db.add_word(word,1,1)
 
 if __name__ == '__main__':
+    t = int(input('Введите кол-во попыток: '))
     main()
