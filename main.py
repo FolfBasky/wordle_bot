@@ -43,7 +43,11 @@ def main():
             alp = [x for x in alp if x not in set(word)-set(letters_true)]
         else:
             word = input('Не удалось угадать слово. Введите загаданное: ')
-            db.add_word(word,1,1)
+            if word in [x[0] for x in words]:
+                db.increment_usage_count(word)
+                db.update_encountered(word)
+            else:
+                db.add_word(word,1,1)
 
 if __name__ == '__main__':
     t = int(input('Введите кол-во попыток: '))
